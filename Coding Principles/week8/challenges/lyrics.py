@@ -1,11 +1,11 @@
 def print_lyrics(animal, sound):
-    result = f'Old MacDonalds had a farm, Ee-igh, Oh!\n' \
+    lyrics = f'Old MacDonalds had a farm, Ee-igh, Oh!\n' \
              f'And on that farm he had a {animal}, Ee-igh, Ee-igh, Oh!\n' \
              f'With a {sound}, {sound} here and a {sound}, {sound} there.\n' \
              f'Here a {sound}, there a {sound}, everywhere a {sound}, {sound}.\n' \
              f'Old MacDonalds had a farm, Ee-igh, Ee-igh, Oh!\n'
 
-    print(result)
+    print(lyrics)
 
 
 def main():
