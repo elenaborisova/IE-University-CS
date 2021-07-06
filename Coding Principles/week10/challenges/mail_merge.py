@@ -7,5 +7,8 @@ def main():
         print(letter.read())
         print()
 
+    names.close()
+    letter.close()
+
 
 main()

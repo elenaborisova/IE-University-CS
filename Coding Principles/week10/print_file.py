@@ -4,5 +4,7 @@ def main():
     data = in_file.read()
     print(data)
 
+    in_file.close()
+
 
 main()
