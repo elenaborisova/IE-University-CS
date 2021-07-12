@@ -12,8 +12,8 @@ def main():
     left_eye.setFill('green')
     left_eye.draw(win)
 
-    right_eye = Circle(Point(120, 90), 7)
-    right_eye.setFill('green')
+    right_eye = left_eye.clone()
+    right_eye.move(40, 0)
     right_eye.draw(win)
 
     nose = Line(Point(100, 105), Point(100, 115))
