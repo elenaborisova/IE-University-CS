@@ -4,11 +4,25 @@ from graphics import *
 def main():
     print('This program plots the growth of a 10-year investment.')
 
-    principal = float(input('Enter the initial principal: '))
-    apr = float(input('Enter the annualized interest rate: '))
-
     win = GraphWin('Investment Growth Chart', 320, 240)
     win.setBackground('white')
+
+    input_text1 = Entry(Point(100, 100), 10)
+    input_text1.setText('0.0')
+    input_text1.draw(win)
+
+    input_text2 = Entry(Point(100, 200), 10)
+    input_text2.setText('0.0')
+    input_text2.draw(win)
+
+    win.getMouse()
+
+    principal = float(input_text1.getText())
+    apr = float(input_text2.getText())
+
+    input_text1.undraw()
+    input_text2.undraw()
+
     Text(Point(20, 230), ' 0.0K').draw(win)
     Text(Point(20, 180), ' 2.5K').draw(win)
     Text(Point(20, 130), ' 5.0K').draw(win)
