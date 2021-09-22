@@ -4,6 +4,10 @@ def add_contact(name, number, email, address, contact_book):
     contact_book[name]['email'] = email
     contact_book[name]['address'] = address
 
+    outfile = open('data_structures_programmatic_thinking/backup.txt', 'a')
+    outfile.write(f'Name: {name}, number: {number}, email: {email}, address: {address}\n')
+    outfile.close()
+
     print(f'You successfully added {name} to the contact book!\n')
     return contact_book
 
@@ -43,7 +47,10 @@ def delete_contact(name, contact_book):
 
 def show_all(contact_book):
     if not contact_book:
-        print('Sorry, there are no contacts in your contact book!\n')
+        # print('Sorry, there are no contacts in your contact book!\n')
+        infile = open('data_structures_programmatic_thinking/test.txt', 'r')
+        for line in infile:
+            print(line)
         return
 
     result = 'Contacts in the contact book:\n'
