@@ -15,12 +15,13 @@ def add_contact(name, number, email, address, contact_book):
 def search_by_name(name, contact_book):
     if name not in contact_book:
         print('Sorry, the name you are searching for is not in the contact book!\n')
+        return
 
     number = contact_book[name]['number']
     email = contact_book[name]['email']
     address = contact_book[name]['address']
 
-    print(f'Contact information:\n'
+    print(f'Contact information >>>\n'
           f'Name: {name}\n'
           f'Telephone number: {number}\n'
           f'Email address: {email}\n'
@@ -36,6 +37,24 @@ def search_by_phone(number, contact_book):
     return
 
 
+def search_by_email(email, contact_book):
+    for name, info in contact_book.items():
+        if info['email'] == email:
+            return name
+
+    print('Sorry, the email you are searching for is not in the contact book!\n')
+    return
+
+
+def search_by_address(address, contact_book):
+    for name, info in contact_book.items():
+        if info['address'] == address:
+            return name
+
+    print('Sorry, the home address you are searching for is not in the contact book!\n')
+    return
+
+
 def delete_contact(name, contact_book):
     if name not in contact_book:
         print('Sorry, the contact you are trying to delete is not in the contact book!\n')
@@ -47,10 +66,7 @@ def delete_contact(name, contact_book):
 
 def show_all(contact_book):
     if not contact_book:
-        # print('Sorry, there are no contacts in your contact book!\n')
-        infile = open('data_structures_programmatic_thinking/test.txt', 'r')
-        for line in infile:
-            print(line)
+        print('Sorry, there are no contacts in your contact book!\n')
         return
 
     result = 'Contacts in the contact book:\n'
@@ -66,7 +82,8 @@ def main():
 
     while True:
         command = input('What do you want to do?\n'
-                        '[add, search by name, delete, show all, search by phone]\n'
+                        '[add, search by name, search by phone, search by email, '
+                        'search by address, delete, show all]\n'
                         '[ENTER to quit]\n'
                         '>>> ')
 
@@ -84,7 +101,18 @@ def main():
         elif command == 'search by phone':
             number = input('Please enter the telephone number you are searching for: ')
             name = search_by_phone(number, contact_book)
-            search_by_name(name, contact_book)
+            if name:
+                search_by_name(name, contact_book)
+        elif command == 'search by email':
+            email = input('Please enter the email address you are searching for: ')
+            name = search_by_email(email, contact_book)
+            if name:
+                search_by_name(name, contact_book)
+        elif command == 'search by address':
+            address = input('Please enter the home address you are searching for: ')
+            name = search_by_address(address, contact_book)
+            if name:
+                search_by_name(name, contact_book)
         elif command == 'delete':
             name = input('Please enter the name of the contact you want to delete: ')
             contact_book = delete_contact(name, contact_book)
