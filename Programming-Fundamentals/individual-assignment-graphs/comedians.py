@@ -102,3 +102,6 @@ def draw_graph(diagram):
     )
 
     net.show('graph-visualization.html')
+    
+    
+graph = parse_csv_to_graph('comedians.csv')
