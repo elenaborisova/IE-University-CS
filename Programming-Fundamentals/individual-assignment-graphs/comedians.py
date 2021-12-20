@@ -63,7 +63,7 @@ def influence_chains(diagram, start, end=None):
                 if target == end:
                     return {start: paths[source][1:] + [target]}
                 paths[target] = paths[source] + [target]
-            queue.append(target)
+                queue.append(target)
 
     result = {start: list(paths)[1:]}
     if end is not None and end not in paths:
