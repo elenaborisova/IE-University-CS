@@ -61,11 +61,14 @@ def influence_chains(diagram, start, end=None):
         for target in targets:
             if target not in paths:
                 if target == end:
-                    return paths[source] + [target]
+                    return {start: paths[source][1:] + [target]}
                 paths[target] = paths[source] + [target]
             queue.append(target)
 
-    return {start: list(paths.keys())[1:]}
+    result = {start: list(paths)[1:]}
+    if end is not None and end not in paths:
+        return f'There is no path between {start} and {end}!'
+    return result
 
 
 # %%
