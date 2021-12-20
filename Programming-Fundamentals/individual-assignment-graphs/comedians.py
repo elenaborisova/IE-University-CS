@@ -76,7 +76,7 @@ def top_10_influencers(diagram):
     influencers_scores = {}
 
     for influencer_name, influencer_vertex in diagram.graph_dict.items():
-        influencers_scores[influencer_name] = len(influencer_vertex.get_edges())
+        influencers_scores[influencer_name] = len(influence_chains(diagram, influencer_name)[influencer_name])
 
     influencers_scores_sorted = [k for k, v in sorted(influencers_scores.items(),
                                                       key=lambda x: x[1],
